@@ -1,0 +1,115 @@
+.banner {
+    display: flex;
+    height: rem-calc(538);
+    text-align: center;
+    align-items: flex-end;
+    background-size: cover;
+    justify-content: center;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    
+    @include breakpoint(small down) {
+        height: 60vh;
+    }
+
+    &.overlay {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        &:before {
+            content: '';
+            z-index: 0;
+            height: 100%;
+            @include bg-overlay;
+        }
+    }
+
+    &__title {
+        color: $white;
+        @extend  .SilkRoadFont;
+        font-size: rem-calc(70);
+        padding-bottom: rem-calc(10);
+        @include breakpoint(medium down) {
+            font-size: rem-calc(70) / 1.5;
+        }
+    }
+
+    &__image {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &__content {
+        z-index: 1;
+        width: 80%;
+        margin-bottom: 50px;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        @include breakpoint(medium down) {
+            width: 90%;
+        }
+
+        p {
+            color: $white;
+            font-weight: 500;
+            line-height: 25px;
+            font-size: rem-calc(17);
+        }
+        &--left {
+            span {
+                color: $white;
+                font-weight: 600;
+                font-size: rem-calc(20);
+                text-transform: uppercase;
+            }
+            text-align: left;
+        }
+    }
+    &__elements {
+        margin: 0;
+        list-style: none;
+        @include xy-grid;
+        align-items: center;
+        li {
+            &:only-child {
+                border-right: 0;
+            }
+            &:last-child {
+                margin-left: auto;
+            }
+        
+            &:first-child {
+                margin-right: rem-calc(15);
+                padding-right: rem-calc(15);
+                border-right: rem-calc(11) solid rgba($light-gray, 0.5);
+            }
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        border-top: 1px solid $white;
+        .tabs {
+            border: 0;
+            li a {
+
+                color: $white;
+                font-weight: 600;
+                text-align: center;
+                font-size: rem-calc(15);
+                text-transform: uppercase;
+                padding: rem-calc(30) rem-calc(40);
+                
+                &.is-active {
+                    background-color: $white;
+                    a { color: $black; }
+                }
+            }
+        }
+
+    }
+}
+
