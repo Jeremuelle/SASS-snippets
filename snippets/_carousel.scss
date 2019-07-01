@@ -1,0 +1,80 @@
+
+$descbox-padding: rem-calc(5) rem-calc(10);
+
+.carousel {
+    padding: rem-calc(10 0);
+  
+    &__item {
+        position: relative;
+    }
+
+    &__image {
+        @extend .ease-in-out;
+        img {
+            opacity: 1;
+            margin: 0 auto;
+            display: block;
+           @include object-fit;
+        }
+    }
+
+    &__descbox {
+        @extend .ease-in-out;
+        &--date, &--location, &--link { 
+            font-weight: 700;
+            color: $font-light;
+            text-transform: uppercase;
+            padding: $descbox-padding;
+            @include rhythm(13, 15);
+        }
+        &--title {
+            color: $black;
+            padding: $descbox-padding;
+            color: $two_a;
+             @include rhythm(20, 25);
+            font-weight: 600;
+        }
+        &--location {
+            background: url(../img/tiny/pin-small.png) no-repeat 0.5% 50%;
+            padding-left: 20px !important;
+            &:before {
+                display: none;
+                content: '\f3c5';
+                @extend .FontAwesome;
+            }
+            svg {
+                margin-right: rem-calc(10);
+                color: $secondary-color;
+            }
+        }
+        &--category {
+            color: $font-light;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        &--link {
+            padding: 0;
+            color: $font-hover;
+            &::after {
+                content: '\f0da';
+                font-family: FontAwesome;
+                margin-left: 5px;
+            }
+        }
+        
+        &--period {
+            padding: $descbox-padding;
+            font-weight: 700;
+            &:before {
+                display: none;
+                content: '\f017';
+                @extend .FontAwesome;
+            }
+            svg {
+                color: $secondary-color;
+                margin-right: rem-calc(10);
+            }
+        }
+    }
+}
